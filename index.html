@@ -168,6 +168,12 @@
             background-color: #fff5f5;
         }
 
+        /* สไตล์ใหม่สำหรับ วิชาที่ชอบ */
+        .info-item.subject-prefer {
+            border-left-color: #0984e3;
+            background-color: #f1f8ff;
+        }
+
         .item-header {
             font-size: 14px;
             color: var(--text-muted);
@@ -186,11 +192,32 @@
 
         .info-item.color-prefer .item-header i { color: #9b59b6; }
         .info-item.food-prefer .item-header i { color: #ff7675; }
+        .info-item.subject-prefer .item-header i { color: #0984e3; }
 
         .item-value {
             font-size: 18px;
             font-weight: 600;
             color: var(--text-main);
+        }
+
+        /* สไตล์เพิ่มเติมสำหรับรายชื่อวิชา */
+        .subject-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 5px;
+        }
+
+        .subject-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #e1f5fe;
+            color: #0288d1;
+            padding: 4px 12px;
+            border-radius: 10px;
+            font-size: 15px;
+            font-weight: 500;
         }
 
         /* ตกแต่งป้ายสีม่วง */
@@ -301,6 +328,22 @@
                         <span class="color-badge">
                             <i class="fa-solid fa-circle" style="color: #dfa7ff;"></i> สีม่วง
                         </span>
+                    </div>
+                </div>
+
+                <div class="info-item subject-prefer">
+                    <div class="item-header">
+                        <i class="fa-solid fa-book-open"></i> วิชาที่ชอบ / Favorite Subjects
+                    </div>
+                    <div class="item-value">
+                        <div class="subject-tags">
+                            <span class="subject-badge">
+                                <i class="fa-solid fa-desktop"></i> วิชาคอมพิวเตอร์
+                            </span>
+                            <span class="subject-badge">
+                                <i class="fa-solid fa-calculator"></i> วิชาคณิตศาสตร์
+                            </span>
+                        </div>
                     </div>
                 </div>
 
