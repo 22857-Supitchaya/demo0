@@ -168,10 +168,15 @@
             background-color: #fff5f5;
         }
 
-        /* สไตล์ใหม่สำหรับ วิชาที่ชอบ */
         .info-item.subject-prefer {
             border-left-color: #0984e3;
             background-color: #f1f8ff;
+        }
+
+        /* สไตล์ใหม่สำหรับ เพื่อนสนิท */
+        .info-item.friend-zone {
+            border-left-color: #1abc9c;
+            background-color: #e8f8f5;
         }
 
         .item-header {
@@ -193,6 +198,7 @@
         .info-item.color-prefer .item-header i { color: #9b59b6; }
         .info-item.food-prefer .item-header i { color: #ff7675; }
         .info-item.subject-prefer .item-header i { color: #0984e3; }
+        .info-item.friend-zone .item-header i { color: #1abc9c; }
 
         .item-value {
             font-size: 18px;
@@ -200,7 +206,20 @@
             color: var(--text-main);
         }
 
-        /* สไตล์เพิ่มเติมสำหรับรายชื่อวิชา */
+        /* ป้ายเพื่อนสนิท */
+        .friend-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: #1abc9c;
+            color: white;
+            padding: 4px 14px;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 500;
+            margin-top: 4px;
+        }
+
         .subject-tags {
             display: flex;
             gap: 8px;
@@ -220,7 +239,6 @@
             font-weight: 500;
         }
 
-        /* ตกแต่งป้ายสีม่วง */
         .color-badge {
             display: inline-flex;
             align-items: center;
@@ -344,6 +362,17 @@
                                 <i class="fa-solid fa-calculator"></i> วิชาคณิตศาสตร์
                             </span>
                         </div>
+                    </div>
+                </div>
+
+                <div class="info-item friend-zone">
+                    <div class="item-header">
+                        <i class="fa-solid fa-user-group"></i> เพื่อนสนิท / Best Friend
+                    </div>
+                    <div class="item-value">
+                        <span class="friend-badge">
+                            <i class="fa-solid fa-star"></i> แพม
+                        </span>
                     </div>
                 </div>
 
