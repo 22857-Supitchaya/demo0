@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ประวัติส่วนตัว - เด็กหญิงสุพิชญา บุตรต๊ะ</title>
     
-    <!-- Google Fonts: Prompt -->
+    <!-- Google Fonts: Prompt & Sriracha for cute handwritten touch -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Sriracha&display=swap" rel="stylesheet">
     
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -21,6 +21,7 @@
                 extend: {
                     fontFamily: {
                         sans: ['Prompt', 'sans-serif'],
+                        cute: ['Sriracha', 'cursive'],
                     },
                     colors: {
                         purple: {
@@ -34,6 +35,31 @@
                             700: '#7e22ce',
                             800: '#6b21a8',
                             900: '#581c87',
+                        },
+                        pink: {
+                            50: '#fff1f2',
+                            100: '#ffe4e6',
+                            200: '#fecdd3',
+                            300: '#fda4af',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                        },
+                        yellow: {
+                            50: '#fefce8',
+                            100: '#fef9c3',
+                            200: '#fef08a',
+                            300: '#fde047',
+                        }
+                    },
+                    animation: {
+                        'bounce-slow': 'bounce 3s infinite',
+                        'pulse-slow': 'pulse 4s infinite',
+                        'float': 'float 4s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '50%': { transform: 'translateY(-8px) rotate(3deg)' },
                         }
                     }
                 }
@@ -42,10 +68,19 @@
     </script>
 
     <style>
+        /* Floating animations for cute deco elements */
+        .deco-star {
+            animation: float 5s ease-in-out infinite;
+        }
+        .deco-heart {
+            animation: float 4s ease-in-out infinite 1s;
+        }
+
         /* Print Styles for A4 */
         @media print {
             body {
                 background-color: white !important;
+                background-image: none !important;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
@@ -62,178 +97,273 @@
             .page-break-inside-avoid {
                 page-break-inside: avoid;
             }
+            .deco-bg-print-hide {
+                display: none !important;
+            }
         }
         
         body {
-            background-color: #f3f4f6; /* Gray 100 */
+            /* Soft Pastel Pattern Background */
+            background-color: #f5f3ff;
+            background-image: radial-gradient(#e9d5ff 1.5px, transparent 1.5px), radial-gradient(#fecdd3 1.5px, #f5f3ff 1.5px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
         }
     </style>
 </head>
-<body class="py-10 px-4 md:px-0 font-sans text-gray-800">
+<body class="py-10 px-4 md:px-0 text-gray-800">
 
     <!-- Print Button (Hidden when printing) -->
     <div class="max-w-[210mm] mx-auto mb-4 text-right print-hide">
-        <button onclick="window.print()" class="bg-purple-600 hover:bg-purple-700 text-white font-medium py-2 px-6 rounded-full shadow-md transition duration-300 flex items-center justify-end ml-auto">
-            <i class="fa-solid fa-print mr-2"></i> พิมพ์การ์ด (Print A4)
+        <button onclick="window.print()" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-bold py-2.5 px-6 rounded-full shadow-lg transition duration-300 flex items-center justify-end ml-auto transform hover:scale-105">
+            <i class="fa-solid fa-magic mr-2 animate-bounce-slow"></i> พิมพ์การ์ดสุดน่ารัก (Print A4)
         </button>
     </div>
 
-    <!-- Main Card Container (A4 Size approximation) -->
-    <div class="a4-container max-w-[210mm] mx-auto bg-white shadow-2xl rounded-3xl overflow-hidden border border-purple-100">
+    <!-- Main Card Container (A4 Size) -->
+    <div class="a4-container max-w-[210mm] mx-auto bg-white/95 backdrop-blur-sm shadow-2xl rounded-[2.5rem] overflow-hidden border-8 border-purple-100 relative">
         
+        <!-- Top Cute Tape Decoration -->
+        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1 w-32 h-8 bg-purple-200/60 rotate-1 rounded-sm shadow-sm border-dashed border-2 border-purple-300/80 flex items-center justify-center z-20 deco-bg-print-hide">
+            <span class="text-[10px] text-purple-700 font-cute tracking-widest">★ MY CARD ★</span>
+        </div>
+
+        <!-- Floating Cute Icons (Hidden on print) -->
+        <div class="absolute top-12 left-10 text-pink-300 text-3xl deco-heart deco-bg-print-hide"><i class="fa-solid fa-heart"></i></div>
+        <div class="absolute top-24 right-12 text-yellow-300 text-3xl deco-star deco-bg-print-hide"><i class="fa-solid fa-star"></i></div>
+        <div class="absolute top-64 left-6 text-purple-300 text-2xl deco-star deco-bg-print-hide"><i class="fa-solid fa-sparkles"></i></div>
+        <div class="absolute bottom-20 right-8 text-pink-200 text-4xl deco-heart deco-bg-print-hide"><i class="fa-solid fa-cloud"></i></div>
+
         <!-- Header Section -->
-        <div class="bg-gradient-to-br from-purple-100 via-purple-50 to-white pt-10 pb-8 px-8 text-center relative border-b-4 border-purple-200">
-            <!-- Decorative circle -->
-            <div class="absolute top-0 right-0 -mt-10 -mr-10 w-40 h-40 bg-purple-200 rounded-full mix-blend-multiply filter blur-2xl opacity-50"></div>
-            <div class="absolute bottom-0 left-0 -mb-10 -ml-10 w-32 h-32 bg-purple-300 rounded-full mix-blend-multiply filter blur-2xl opacity-40"></div>
-
+        <div class="bg-gradient-to-b from-purple-100 via-pink-50/50 to-white pt-14 pb-8 px-8 text-center relative border-b-4 border-dashed border-purple-200">
             <div class="relative z-10">
-                <!-- Avatar Placeholder -->
-                <div class="w-32 h-32 mx-auto bg-white rounded-full border-4 border-purple-300 shadow-lg flex items-center justify-center overflow-hidden mb-4">
-                    <i class="fa-solid fa-user-graduate text-5xl text-purple-300"></i>
-                    <!-- หากมีรูปภาพ สามารถใส่แท็ก img แทนไอคอนด้านบนได้ เช่น: -->
-                    <!-- <img src="URL_รูปภาพ" alt="Profile" class="w-full h-full object-cover"> -->
-                </div>
-
-                <h1 class="text-3xl font-bold text-gray-900 mb-1">ด.ญ. สุพิชญา บุตรต๊ะ</h1>
-                <h2 class="text-xl text-purple-600 font-semibold mb-3">น้องแก้ม</h2>
                 
-                <div class="inline-block bg-white px-5 py-2 rounded-full shadow-sm border border-purple-100 mb-4">
-                    <span class="text-purple-700 font-medium"><i class="fa-solid fa-school text-purple-400 mr-2"></i>โรงเรียนจอมทอง</span>
-                    <span class="mx-2 text-gray-300">|</span>
-                    <span class="text-purple-700 font-medium">ระดับชั้น ม.3/2</span>
+                <!-- Avatar Frame with cute ears styling -->
+                <div class="relative w-36 h-36 mx-auto mb-4">
+                    <!-- Cute Bear/Cat Ears Decoration -->
+                    <div class="absolute -top-2 -left-2 w-8 h-8 bg-purple-300 rounded-full border-4 border-white shadow-md deco-bg-print-hide"></div>
+                    <div class="absolute -top-2 -right-2 w-8 h-8 bg-purple-300 rounded-full border-4 border-white shadow-md deco-bg-print-hide"></div>
+                    
+                    <!-- Main Photo Ring -->
+                    <div class="w-full h-full bg-white rounded-full border-4 border-purple-400 shadow-xl flex items-center justify-center overflow-hidden p-1 bg-gradient-to-tr from-purple-200 to-pink-200">
+                        <div class="w-full h-full rounded-full bg-purple-50 flex items-center justify-center border-2 border-dashed border-purple-300/70">
+                            <!-- Large cute character/student placeholder -->
+                            <i class="fa-solid fa-face-smile-wink text-6xl text-purple-400/80"></i>
+                            <!-- <img src="URL_รูปภาพ" alt="Profile" class="w-full h-full object-cover rounded-full"> -->
+                        </div>
+                    </div>
+                    
+                    <!-- Cute Ribbon Badge -->
+                    <div class="absolute -bottom-2 -right-2 bg-pink-400 text-white rounded-full p-2.5 shadow-lg border-2 border-white flex items-center justify-center">
+                        <i class="fa-solid fa-heart text-xs animate-pulse-slow"></i>
+                    </div>
                 </div>
 
-                <!-- Motto -->
-                <div class="mt-2">
-                    <p class="text-lg italic text-gray-600 font-medium">
-                        <i class="fa-solid fa-quote-left text-purple-300 mr-2 text-sm"></i>
+                <h1 class="text-3xl font-extrabold text-gray-900 tracking-wide mb-1 flex items-center justify-center gap-2">
+                    <span class="text-pink-400 text-2xl"><i class="fa-solid fa-sparkles"></i></span>
+                    เด็กหญิงสุพิชญา บุตรต๊ะ
+                    <span class="text-pink-400 text-2xl"><i class="fa-solid fa-sparkles"></i></span>
+                </h1>
+                
+                <!-- Nickname with cute pill container -->
+                <div class="inline-block bg-pink-100 border-2 border-pink-200 text-pink-700 font-cute text-2xl px-6 py-1 rounded-full shadow-sm mb-4 transform -rotate-1">
+                    น้องแก้ม 🐰
+                </div>
+                
+                <div class="block">
+                    <div class="inline-flex flex-wrap items-center justify-center gap-2 bg-purple-50/80 px-5 py-2 rounded-2xl border-2 border-purple-100 shadow-sm">
+                        <span class="text-purple-700 font-semibold flex items-center">
+                            <i class="fa-solid fa-school text-purple-400 mr-2"></i>โรงเรียนจอมทอง
+                        </span>
+                        <span class="text-purple-300">|</span>
+                        <span class="text-purple-700 font-semibold bg-white px-2.5 py-0.5 rounded-lg border border-purple-100">
+                            ชั้น ม.3/2 🎒
+                        </span>
+                    </div>
+                </div>
+
+                <!-- Motto Card -->
+                <div class="mt-5 max-w-md mx-auto bg-yellow-50 border-2 border-dashed border-yellow-300 rounded-2xl p-3 shadow-inner transform rotate-1">
+                    <p class="text-md italic text-amber-900 font-medium font-cute text-lg">
+                        <i class="fa-solid fa-quote-left text-yellow-400 mr-2 text-sm"></i>
                         ความสำเร็จไม่ได้เกิดจากเพียงพรสวรรค์
-                        <i class="fa-solid fa-quote-right text-purple-300 ml-2 text-sm"></i>
+                        <i class="fa-solid fa-quote-right text-yellow-400 ml-2 text-sm"></i>
                     </p>
                 </div>
             </div>
         </div>
 
         <!-- Body Section -->
-        <div class="p-8">
+        <div class="p-8 bg-gradient-to-b from-white to-purple-50/40">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 
                 <!-- Left Column -->
-                <div class="space-y-8">
+                <div class="space-y-6">
                     
                     <!-- ข้อมูลส่วนตัว -->
-                    <div class="page-break-inside-avoid">
-                        <h3 class="text-lg font-bold text-purple-800 border-b-2 border-purple-100 pb-2 mb-4 flex items-center">
-                            <i class="fa-solid fa-address-card w-6 text-purple-500 mr-2"></i> ข้อมูลส่วนตัว
+                    <div class="page-break-inside-avoid bg-white p-6 rounded-3xl shadow-md border-2 border-purple-50 relative overflow-hidden">
+                        <!-- Tiny deco tape -->
+                        <div class="absolute -top-1 left-6 w-12 h-3 bg-pink-200/50 -rotate-3 deco-bg-print-hide"></div>
+                        
+                        <h3 class="text-lg font-bold text-purple-700 border-b-2 border-dashed border-purple-100 pb-2 mb-4 flex items-center gap-2">
+                            <span class="bg-purple-100 p-1.5 rounded-lg text-purple-500"><i class="fa-solid fa-address-card"></i></span> 
+                            ข้อมูลส่วนตัวสุดคิ้วท์
                         </h3>
-                        <ul class="space-y-3 text-sm">
-                            <li class="flex items-start"><span class="w-24 text-gray-500 font-medium">วันเกิด:</span> <span class="text-gray-800">18 พฤศจิกายน 2554</span></li>
-                            <li class="flex items-start"><span class="w-24 text-gray-500 font-medium">เพศ:</span> <span class="text-gray-800">หญิง</span></li>
-                            <li class="flex items-start"><span class="w-24 text-gray-500 font-medium">กรุ๊ปเลือด:</span> <span class="text-gray-800">B</span></li>
-                            <li class="flex items-start"><span class="w-24 text-gray-500 font-medium">ราศี:</span> <span class="text-gray-800">พิจิก</span></li>
-                            <li class="flex items-start"><span class="w-24 text-gray-500 font-medium">ส่วนสูง:</span> <span class="text-gray-800">155 ซม.</span></li>
-                            <li class="flex items-start"><span class="w-24 text-gray-500 font-medium">ภูมิลำเนา:</span> <span class="text-gray-800">เชียงใหม่</span></li>
+                        <ul class="space-y-3.5 text-sm">
+                            <li class="flex items-center"><span class="w-24 text-gray-400 font-medium flex items-center"><i class="fa-solid fa-cake-candles text-pink-400 mr-2"></i> วันเกิด:</span> <span class="text-gray-800 font-medium">18 พฤศจิกายน 2554</span></li>
+                            <li class="flex items-center"><span class="w-24 text-gray-400 font-medium flex items-center"><i class="fa-solid fa-venus-mars text-purple-400 mr-2"></i> เพศ:</span> <span class="text-gray-800 font-medium">หญิง</span></li>
+                            <li class="flex items-center"><span class="w-24 text-gray-400 font-medium flex items-center"><i class="fa-solid fa-droplet text-red-400 mr-2"></i> กรุ๊ปเลือด:</span> <span class="text-gray-800 font-medium bg-red-50 text-red-600 px-2.5 py-0.5 rounded-full border border-red-100 font-semibold">B</span></li>
+                            <li class="flex items-center"><span class="w-24 text-gray-400 font-medium flex items-center"><i class="fa-solid fa-wand-magic-sparkles text-yellow-500 mr-2"></i> ราศี:</span> <span class="text-gray-800 font-medium">พิจิก ♏</span></li>
+                            <li class="flex items-center"><span class="w-24 text-gray-400 font-medium flex items-center"><i class="fa-solid fa-arrows-up-down text-blue-400 mr-2"></i> ส่วนสูง:</span> <span class="text-gray-800 font-medium">155 ซม.</span></li>
+                            <li class="flex items-center"><span class="w-24 text-gray-400 font-medium flex items-center"><i class="fa-solid fa-map-location-dot text-green-400 mr-2"></i> ภูมิลำเนา:</span> <span class="text-gray-800 font-medium">เชียงใหม่ 🏔️</span></li>
                         </ul>
                     </div>
 
                     <!-- การเรียน & กิจกรรม -->
-                    <div class="page-break-inside-avoid">
-                        <h3 class="text-lg font-bold text-purple-800 border-b-2 border-purple-100 pb-2 mb-4 flex items-center">
-                            <i class="fa-solid fa-book-open w-6 text-purple-500 mr-2"></i> การเรียน & กิจกรรม
+                    <div class="page-break-inside-avoid bg-white p-6 rounded-3xl shadow-md border-2 border-purple-50 relative overflow-hidden">
+                        <!-- Tiny deco tape -->
+                        <div class="absolute -top-1 right-6 w-12 h-3 bg-purple-200/50 rotate-3 deco-bg-print-hide"></div>
+
+                        <h3 class="text-lg font-bold text-purple-700 border-b-2 border-dashed border-purple-100 pb-2 mb-4 flex items-center gap-2">
+                            <span class="bg-purple-100 p-1.5 rounded-lg text-purple-500"><i class="fa-solid fa-graduation-cap"></i></span> 
+                            การเรียน & กิจกรรม
                         </h3>
-                        <ul class="space-y-3 text-sm">
-                            <li class="flex items-start"><span class="w-28 text-gray-500 font-medium">วิชาที่ชอบ:</span> <span class="text-gray-800">วิชาศิลปะ <i class="fa-solid fa-palette text-pink-400 ml-1"></i></span></li>
-                            <li class="flex items-start"><span class="w-28 text-gray-500 font-medium">วิชาที่ยาก:</span> <span class="text-gray-800">วิชาคณิตศาสตร์</span></li>
+                        <ul class="space-y-3.5 text-sm">
                             <li class="flex items-start">
-                                <span class="w-28 text-gray-500 font-medium flex-shrink-0">ชมรม/กิจกรรม:</span> 
-                                <span class="text-gray-800">Let's sing English Karaoke!</span>
+                                <span class="w-28 text-gray-400 font-medium flex items-center flex-shrink-0"><i class="fa-solid fa-palette text-pink-400 mr-2"></i> วิชาที่ชอบ:</span> 
+                                <span class="text-gray-800 font-semibold bg-pink-50 text-pink-600 px-2.5 py-0.5 rounded-lg border border-pink-100">วิชาศิลปะ 🎨</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-28 text-gray-400 font-medium flex items-center flex-shrink-0"><i class="fa-solid fa-calculator text-gray-400 mr-2"></i> วิชาที่ยาก:</span> 
+                                <span class="text-gray-700 font-medium bg-gray-50 text-gray-600 px-2.5 py-0.5 rounded-lg border border-gray-100">วิชาคณิตศาสตร์ 📐</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-28 text-gray-400 font-medium flex items-center flex-shrink-0"><i class="fa-solid fa-microphone-lines text-purple-400 mr-2"></i> ชมรม/กิจกรรม:</span> 
+                                <span class="text-purple-700 font-semibold">Let's sing English Karaoke! 🎤🌟</span>
                             </li>
                         </ul>
                     </div>
 
                     <!-- ความฝันและเพื่อนสนิท -->
-                    <div class="page-break-inside-avoid bg-purple-50 p-4 rounded-xl border border-purple-100">
-                        <h3 class="text-md font-bold text-purple-800 mb-3 flex items-center">
-                            <i class="fa-solid fa-star w-6 text-yellow-500 mr-1"></i> ความฝัน & อาชีพ
-                        </h3>
-                        <p class="text-gray-800 font-medium ml-7 mb-4 text-lg text-purple-600">ข้าราชการครู</p>
+                    <div class="page-break-inside-avoid bg-gradient-to-tr from-pink-50 to-purple-50 p-6 rounded-3xl shadow-md border-2 border-pink-100 relative overflow-hidden">
+                        <div class="absolute -right-6 -bottom-6 text-pink-200/40 text-7xl deco-bg-print-hide"><i class="fa-solid fa-user-group"></i></div>
                         
-                        <h3 class="text-md font-bold text-purple-800 mb-2 flex items-center">
-                            <i class="fa-solid fa-user-group w-6 text-blue-400 mr-1"></i> แก๊งเพื่อนสนิท
+                        <h3 class="text-md font-bold text-pink-700 mb-2.5 flex items-center gap-1.5">
+                            <i class="fa-solid fa-cloud-sun text-yellow-500 text-lg"></i> โตขึ้นอยากเป็น...
                         </h3>
-                        <p class="text-gray-700 text-sm ml-7 leading-relaxed">
-                            แพม, เมกาน, ปั้นหยา, อิมเอม, สตางค์
+                        <p class="text-gray-800 font-bold ml-6 mb-5 text-xl text-purple-700 flex items-center gap-2">
+                            🍎 ข้าราชการครู
                         </p>
+                        
+                        <h3 class="text-md font-bold text-purple-700 mb-2.5 flex items-center gap-1.5">
+                            <i class="fa-solid fa-face-laugh-beam text-pink-400 text-lg animate-bounce-slow"></i> แก๊งเพื่อนสนิทสุดรัก
+                        </h3>
+                        <div class="ml-6 flex flex-wrap gap-1.5">
+                            <span class="bg-white/80 border border-purple-200 text-purple-700 text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm">💻 แพม</span>
+                            <span class="bg-white/80 border border-purple-200 text-purple-700 text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm">👑 เมกาน</span>
+                            <span class="bg-white/80 border border-purple-200 text-purple-700 text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm">🎀 ปั้นหยา</span>
+                            <span class="bg-white/80 border border-purple-200 text-purple-700 text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm">🍭 อิมเอม</span>
+                            <span class="bg-white/80 border border-purple-200 text-purple-700 text-xs font-semibold px-2.5 py-1 rounded-full shadow-sm">⭐ สตางค์</span>
+                        </div>
                     </div>
 
                 </div>
 
                 <!-- Right Column -->
-                <div class="space-y-8">
+                <div class="space-y-6">
                     
                     <!-- ความชอบ & ไลฟ์สไตล์ -->
-                    <div class="page-break-inside-avoid">
-                        <h3 class="text-lg font-bold text-purple-800 border-b-2 border-purple-100 pb-2 mb-4 flex items-center">
-                            <i class="fa-solid fa-heart w-6 text-purple-500 mr-2"></i> ไลฟ์สไตล์ & สิ่งที่ชอบ
+                    <div class="page-break-inside-avoid bg-white p-6 rounded-3xl shadow-md border-2 border-purple-50 relative overflow-hidden">
+                        <!-- Tiny deco tape -->
+                        <div class="absolute -top-1 left-6 w-12 h-3 bg-purple-200/50 rotate-6 deco-bg-print-hide"></div>
+
+                        <h3 class="text-lg font-bold text-purple-700 border-b-2 border-dashed border-purple-100 pb-2 mb-4 flex items-center gap-2">
+                            <span class="bg-purple-100 p-1.5 rounded-lg text-purple-500"><i class="fa-solid fa-heart"></i></span> 
+                            ไลฟ์สไตล์ & ของโปรด
                         </h3>
-                        <ul class="space-y-3 text-sm">
-                            <li class="flex items-start">
-                                <span class="w-24 text-gray-500 font-medium"><i class="fa-solid fa-utensils text-orange-400 w-5"></i> อาหาร:</span> 
-                                <span class="text-gray-800">ไก่ทอด</span>
+                        <ul class="space-y-3.5 text-sm">
+                            <li class="flex items-center">
+                                <span class="w-24 text-gray-400 font-medium flex items-center"><i class="fa-solid fa-utensils text-orange-400 mr-2 w-5 text-center"></i> อาหาร:</span> 
+                                <span class="text-gray-800 font-semibold bg-orange-50 text-orange-600 px-2.5 py-0.5 rounded-lg border border-orange-100">ไก่ทอด 🍗✨</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-24 text-gray-400 font-medium flex items-center"><i class="fa-solid fa-palette text-purple-500 mr-2 w-5 text-center"></i> สีโปรด:</span> 
+                                <span class="text-purple-600 font-bold bg-purple-100 px-2.5 py-0.5 rounded-lg border border-purple-200">สีม่วง 💜</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-24 text-gray-400 font-medium flex items-center"><i class="fa-solid fa-circle-play text-green-500 mr-2 w-5 text-center"></i> กีฬา:</span> 
+                                <span class="text-gray-800 font-medium">แบดมินตัน 🏸</span>
+                            </li>
+                            <li class="flex items-center">
+                                <span class="w-24 text-gray-400 font-medium flex items-center"><i class="fa-solid fa-music text-pink-400 mr-2 w-5 text-center"></i> แนวเพลง:</span> 
+                                <span class="text-gray-800 font-medium">เพลงสากล, ป๊อปมิวสิค 🎵</span>
                             </li>
                             <li class="flex items-start">
-                                <span class="w-24 text-gray-500 font-medium"><i class="fa-solid fa-droplet text-purple-500 w-5"></i> สีโปรด:</span> 
-                                <span class="text-purple-600 font-semibold">สีม่วง</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="w-24 text-gray-500 font-medium"><i class="fa-solid fa-table-tennis-paddle-ball text-green-500 w-5"></i> กีฬา:</span> 
-                                <span class="text-gray-800">แบดมินตัน</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="w-24 text-gray-500 font-medium"><i class="fa-solid fa-music text-pink-500 w-5"></i> แนวเพลง:</span> 
-                                <span class="text-gray-800">เพลงสากล, ป๊อปมิวสิค</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="w-24 text-gray-500 font-medium"><i class="fa-solid fa-tv text-blue-500 w-5"></i> ซีรีส์/อนิเมะ:</span> 
-                                <span class="text-gray-800">Omniscient Reader</span>
+                                <span class="w-24 text-gray-400 font-medium flex items-center flex-shrink-0"><i class="fa-solid fa-book text-blue-400 mr-2 w-5 text-center"></i> อนิเมะ/ซีรีส์:</span> 
+                                <span class="text-purple-800 font-semibold bg-purple-50 px-2 py-0.5 rounded border border-purple-100">Omniscient Reader 📖⭐</span>
                             </li>
                         </ul>
                     </div>
 
                     <!-- งานอดิเรก -->
-                    <div class="page-break-inside-avoid">
-                        <h3 class="text-lg font-bold text-purple-800 border-b-2 border-purple-100 pb-2 mb-4 flex items-center">
-                            <i class="fa-solid fa-icons w-6 text-purple-500 mr-2"></i> งานอดิเรก
+                    <div class="page-break-inside-avoid bg-white p-6 rounded-3xl shadow-md border-2 border-purple-50 relative overflow-hidden">
+                        <h3 class="text-lg font-bold text-purple-700 border-b-2 border-dashed border-purple-100 pb-2 mb-4 flex items-center gap-2">
+                            <span class="bg-purple-100 p-1.5 rounded-lg text-purple-500"><i class="fa-solid fa-star"></i></span> 
+                            งานอดิเรกแสนสนุก
                         </h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-gray-100 border border-gray-200 text-gray-700 px-3 py-1.5 rounded-lg text-sm flex items-center">
-                                <i class="fa-solid fa-pen-nib mr-2 text-purple-400"></i> วาดรูป
+                        <div class="flex flex-wrap gap-2.5">
+                            <span class="bg-purple-50 border-2 border-purple-100 text-purple-700 px-3.5 py-1.5 rounded-2xl text-sm font-semibold flex items-center shadow-sm hover:scale-105 transition duration-200">
+                                <i class="fa-solid fa-pen-nib mr-2 text-pink-400"></i> วาดรูป ✏️
                             </span>
-                            <span class="bg-gray-100 border border-gray-200 text-gray-700 px-3 py-1.5 rounded-lg text-sm flex items-center">
-                                <i class="fa-solid fa-fill-drip mr-2 text-purple-400"></i> ระบายสี
+                            <span class="bg-pink-50 border-2 border-pink-100 text-pink-700 px-3.5 py-1.5 rounded-2xl text-sm font-semibold flex items-center shadow-sm hover:scale-105 transition duration-200">
+                                <i class="fa-solid fa-paintbrush mr-2 text-pink-400"></i> ระบายสี 🎨
                             </span>
-                            <span class="bg-gray-100 border border-gray-200 text-gray-700 px-3 py-1.5 rounded-lg text-sm flex items-center">
-                                <i class="fa-solid fa-headphones mr-2 text-purple-400"></i> ฟังเพลง
+                            <span class="bg-yellow-50 border-2 border-yellow-100 text-amber-850 px-3.5 py-1.5 rounded-2xl text-sm font-semibold flex items-center shadow-sm hover:scale-105 transition duration-200">
+                                <i class="fa-solid fa-headphones mr-2 text-yellow-500"></i> ฟังเพลง 🎧
                             </span>
                         </div>
                     </div>
 
                     <!-- ทักษะความสามารถ (Skills Pills) -->
-                    <div class="page-break-inside-avoid mt-6">
-                        <h3 class="text-lg font-bold text-purple-800 border-b-2 border-purple-100 pb-2 mb-4 flex items-center">
-                            <i class="fa-solid fa-bolt w-6 text-purple-500 mr-2"></i> ทักษะความสามารถ
+                    <div class="page-break-inside-avoid bg-white p-6 rounded-3xl shadow-md border-2 border-purple-50 relative overflow-hidden">
+                        <!-- Tiny deco tape -->
+                        <div class="absolute -top-1 right-6 w-12 h-3 bg-pink-200/50 -rotate-3 deco-bg-print-hide"></div>
+
+                        <h3 class="text-lg font-bold text-purple-700 border-b-2 border-dashed border-purple-100 pb-2 mb-4 flex items-center gap-2">
+                            <span class="bg-purple-100 p-1.5 rounded-lg text-purple-500"><i class="fa-solid fa-circle-check"></i></span> 
+                            ระดับทักษะความเทพ!
                         </h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-purple-100 text-purple-700 font-semibold px-4 py-2 rounded-full text-sm shadow-sm border border-purple-200 hover:bg-purple-200 transition">
-                                <i class="fa-solid fa-paintbrush mr-1"></i> ทักษะการวาดรูป
-                            </span>
-                            <span class="bg-purple-100 text-purple-700 font-semibold px-4 py-2 rounded-full text-sm shadow-sm border border-purple-200 hover:bg-purple-200 transition">
-                                <i class="fa-solid fa-palette mr-1"></i> ทักษะการระบายสี
-                            </span>
-                            <span class="bg-purple-100 text-purple-700 font-semibold px-4 py-2 rounded-full text-sm shadow-sm border border-purple-200 hover:bg-purple-200 transition">
-                                <i class="fa-solid fa-gamepad mr-1"></i> ทักษะการเล่นเกม
-                            </span>
+                        <div class="space-y-3">
+                            <!-- Skill 1 -->
+                            <div>
+                                <div class="flex justify-between text-xs font-semibold mb-1 text-purple-700">
+                                    <span>🎨 ทักษะการวาดรูป</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="w-full bg-purple-100 h-3 rounded-full overflow-hidden p-[2px]">
+                                    <div class="bg-gradient-to-r from-purple-400 to-pink-400 h-full rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <!-- Skill 2 -->
+                            <div>
+                                <div class="flex justify-between text-xs font-semibold mb-1 text-pink-600">
+                                    <span>🖌️ ทักษะการระบายสี</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="w-full bg-pink-100 h-3 rounded-full overflow-hidden p-[2px]">
+                                    <div class="bg-gradient-to-r from-pink-400 to-purple-400 h-full rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <!-- Skill 3 -->
+                            <div>
+                                <div class="flex justify-between text-xs font-semibold mb-1 text-purple-600">
+                                    <span>🎮 ทักษะการเล่นเกม</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="w-full bg-purple-100 h-3 rounded-full overflow-hidden p-[2px]">
+                                    <div class="bg-gradient-to-r from-purple-400 to-indigo-400 h-full rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
@@ -241,8 +371,8 @@
             </div>
             
             <!-- Footer decoration -->
-            <div class="mt-10 border-t border-purple-100 pt-4 text-center text-xs text-gray-400">
-                <p>Created for Student Profile | Jomthong School</p>
+            <div class="mt-10 border-t-2 border-dashed border-purple-100 pt-6 text-center text-xs text-purple-400">
+                <p class="font-cute text-sm">🌻 Create with love for Nong Gam, Jomthong School 🌻</p>
             </div>
         </div>
     </div>
